@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PahamKu - Dashboard</title>
+  
+  <!-- Font Inter & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- File CSS Eksternal -->
+  <link rel="stylesheet" href="stlye-dashboard.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="logo">
+      <!-- Logo SVG Sesuai Gambar Referensi -->
+      <div class="logo-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+          <!-- Latar Belakang Kotak Lengkung Biru -->
+          <rect width="512" height="512" rx="110" fill="#2563eb" />
+          
+          <!-- Bintang Kuning (Ukuran Kecil) -->
+          <path d="M375 125l12 28 28 12-28 12-12 28-12-28-28-12 28-12 12-28z" fill="#facc15" />
+          
+          <!-- Buku Putih Terbuka -->
+          <path d="M85 200c40-15 75-20 115 0v135c-40-20-75-15-115 0V200z" fill="#ffffff" />
+          
+          <!-- Grafik Batang di sebelah kanan buku -->
+          <rect x="235" y="275" width="22" height="60" rx="6" fill="#93c5fd" />
+          <rect x="270" y="240" width="22" height="95" rx="6" fill="#bfdbfe" />
+          <rect x="305" y="195" width="22" height="140" rx="6" fill="#ffffff" />
+
+          <!-- Garis Kurva Bawah -->
+          <path d="M75 365c70 25 210 25 260 0" stroke="#ffffff" stroke-width="14" stroke-linecap="round" fill="none" />
+        </svg>
+      </div>
+      <!-- Teks PahamKu (Paham: Hitam, Ku: Biru) -->
+      <span class="logo-text">Paham<span class="highlight">Ku</span></span>
+    </div>
+    
+    <div class="user-profile">
+      <span class="role-tag">Siswa</span>
+      <div class="avatar-circle">RP</div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <ul class="nav-list">
+        <li>
+          <a href="#" class="nav-item active">Dashboard</a>
+        </li>
+        <li>
+          <a href="#" class="nav-item">Profil</a>
+        </li>
+      </ul>
+      <a href="#" class="logout-btn">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Keluar</span>
+      </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <h1 class="greeting-title">Halo, Rina</h1>
+
+      <!-- Cards Grid Section -->
+      <div class="cards-grid">
+        
+        <!-- Left Yellow Card: Tingkat Pemahaman -->
+        <div class="understanding-card">
+          <div class="understanding-title">Tingkat pemahamanmu</div>
+          <div class="understanding-level">SEDANG</div>
+        </div>
+
+        <!-- Right White Card: Progress/Nilai -->
+        <div class="scores-card">
+          <div class="scores-title">Nilai kamu</div>
+
+          <!-- Progress Item 1 -->
+          <div class="score-item">
+            <div class="score-header">
+              <span>Tugas</span>
+              <span class="score-val">68</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 68%;"></div>
+            </div>
+          </div>
+
+          <!-- Progress Item 2 -->
+          <div class="score-item">
+            <div class="score-header">
+              <span>Evaluasi</span>
+              <span class="score-val">64</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 64%;"></div>
+            </div>
+          </div>
+
+          <!-- Progress Item 3 -->
+          <div class="score-item">
+            <div class="score-header">
+              <span>Kehadiran</span>
+              <span class="score-val">80%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <!-- Progress Item 4 -->
+          <div class="score-item">
+            <div class="score-header">
+              <span>Keaktifan</span>
+              <span class="score-val">3/5</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 60%;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Card: Saran Belajar -->
+      <div class="suggestion-card">
+        <strong>Saran belajar:</strong> review materi dan latihan soal tambahan
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>&copy; 2026 PahamKu</div>
+    <div class="footer-links">
+      <a href="#">Panduan</a>
+      <a href="#">Privasi</a>
+      <a href="#">Bantuan</a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PahamKu - Klasifikasi Tingkat Pemahaman</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-frame">
+
+    <header class="topbar">
+        <a href="klasifikasi.html" class="brand" aria-label="PahamKu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64">
+                <defs>
+                    <linearGradient id="pkg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#3E8BF2"/>
+                        <stop offset="1" stop-color="#1558B8"/>
+                    </linearGradient>
+                </defs>
+                <rect width="64" height="64" rx="18" fill="url(#pkg)"/>
+                <path d="M28.5 46C22.5 42.5 15 41.5 8 43.5V23.5C15 21.5 22.5 22.5 28.5 26Z" fill="#fff"/>
+                <rect x="32.5" y="36" width="6.5" height="10" rx="2" fill="rgba(255,255,255,.55)"/>
+                <rect x="41" y="29" width="6.5" height="17" rx="2" fill="rgba(255,255,255,.8)"/>
+                <rect x="49.5" y="22" width="6.5" height="24" rx="2" fill="#fff"/>
+                <path d="M8 50.5C20 55 44 55 56 50.5" stroke="rgba(255,255,255,.85)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+                <path d="M47 6.5l1.7 4.1 4.1 1.7-4.1 1.7L47 18.1l-1.7-4.1-4.1-1.7 4.1-1.7z" fill="#F2C94C"/>
+                <text x="78" y="44" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="38" font-weight="800" letter-spacing="-1" fill="#12305C">Paham<tspan fill="#1E6FD9">Ku</tspan></text>
+            </svg>
+        </a>
+
+        <div class="account">
+            <span class="role">Admin</span>
+            <span class="avatar">AU</span>
+        </div>
+    </header>
+
+    <div class="workspace">
+
+        <aside class="sidebar">
+            <nav aria-label="Navigasi utama">
+                <a href="#">Dashboard</a>
+                <a href="#">Kelola akun</a>
+                <a href="#">Data siswa</a>
+                <a href="klasifikasi.html" class="active">Klasifikasi</a>
+                <a href="../rekomendasi/rekomendasi.html">Rekomendasi</a>
+                <a href="#">Profil</a>
+            </nav>
+
+            <a href="#" class="logout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 17l5-5-5-5"/>
+                    <path d="M15 12H3"/>
+                    <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/>
+                </svg>
+                <span>Keluar</span>
+            </a>
+        </aside>
+
+        <main class="main-content">
+
+            <div class="page-heading">
+                <h1>Klasifikasi tingkat pemahaman</h1>
+    
+            </div>
+
+            <section class="filter-panel">
+                <select aria-label="Pilih pengajar">
+                    <option>Rina Pratiwi</option>
+                    <option>Andi Saputra</option>
+                    <option>Dito Wibowo</option>
+                </select>
+                <button class="button muted-button">Klasifikasikan</button>
+                <button class="button muted-button">Semua (60)</button>
+            </section>
+
+            <div class="result-heading">
+                <div>
+                    <h2>Hasil semua siswa</h2>
+                    <span>60 siswa diklasifikasi</span>
+                </div>
+                <button class="button download-button">↓ Unduh hasil</button>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="tab selected">Semua <span>60</span></button>
+                <button class="tab">Rendah <span>14</span></button>
+                <button class="tab">Sedang <span>27</span></button>
+                <button class="tab">Tinggi <span>19</span></button>
+            </div>
+
+            <section class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama siswa</th>
+                            <th>Kategori pemahaman</th>
+                            <th>Peluang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Andi Saputra</td>
+                            <td><span class="badge low">Rendah</span></td>
+                            <td>81%</td>
+                        </tr>
+                        <tr>
+                            <td>Rina Pratiwi</td>
+                            <td><span class="badge medium">Sedang</span></td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Dito Wibowo</td>
+                            <td><span class="badge high">Tinggi</span></td>
+                            <td>88%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="pagination-row">
+                <span>Menampilkan 3 dari 60 siswa</span>
+                <div class="pagination">
+                    <button disabled>‹ Sebelumnya</button>
+                    <button class="current">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>Berikutnya ›</button>
+                </div>
+            </div>
+
+            <section class="learning-card">
+                <div class="learning-info">
+                    <strong>Pembelajaran sistem</strong>
+                    <span>Akurasi 87%</span>
+                    <span>Data latih 48 · Uji 12</span>
+                </div>
+                <button class="button muted-button">Latih ulang</button>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <span>© 2026 PahamKu</span>
+        <div>
+            <a href="#">Panduan</a>
+            <a href="#">Privasi</a>
+            <a href="#">Bantuan</a>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
