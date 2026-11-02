@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lupa Kata Sandi - PahamKu</title>
   
-  <!-- Import Font Plus Jakarta Sans -->
+  <!-- IMPOR FONT: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    /* =========================================================
+       1. GLOBAL STYLES & RESET
+       ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -27,34 +30,34 @@
       overflow: hidden;
     }
 
-    /* Top Bar Header */
+    /* =========================================================
+       2. TOP HEADER NAVIGATION (Bar Navigasi Atas)
+       ========================================================= */
     .top-header {
-      height: 48px;
+      height: 52px;
       padding: 0 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: #ffffff;
       border-bottom: 1px solid #eef2f6;
+      flex-shrink: 0;
     }
 
-    /* Container Logo Presisi Figma: Tinggi Total 17.09px, Lebar Total ~69.15px */
     .logo-box {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5.06px;
       height: 17.09px;
       text-decoration: none;
     }
 
-    /* Icon Box SVG: Presisi Tinggi 17.09px & Lebar 17.09px */
     .logo-icon {
       height: 17.09px;
       width: 17.09px;
       flex-shrink: 0;
     }
 
-    /* Typography Teks Logo: Presisi Proposional terhadap Tinggi 17.09px */
     .logo-text {
       font-size: 15px;
       font-weight: 700;
@@ -80,7 +83,9 @@
       color: #2563eb;
     }
 
-    /* Main Area Container */
+    /* =========================================================
+       3. MAIN CONTAINER & FORM CARD
+       ========================================================= */
     .main-container {
       flex: 1;
       background-color: #f4f7fc;
@@ -90,7 +95,6 @@
       position: relative;
     }
 
-    /* Center Form Card */
     .content-wrapper {
       flex: 1;
       display: flex;
@@ -102,10 +106,10 @@
     .card {
       background: #ffffff;
       width: 100%;
-      max-width: 420px;
-      padding: 32px 28px;
+      max-width: 380px;
+      padding: 28px 24px;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
     }
 
     .back-link {
@@ -122,22 +126,21 @@
     }
 
     .card-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: #0f2942;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .card-description {
       font-size: 12px;
       color: #64748b;
       line-height: 1.5;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
-    /* Form Element */
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .form-label {
@@ -150,8 +153,9 @@
 
     .form-input {
       width: 100%;
-      padding: 10px 14px;
-      font-size: 13px;
+      height: 36.31px;
+      padding: 8px 12px;
+      font-size: 12px;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
       outline: none;
@@ -170,12 +174,12 @@
 
     .btn-submit {
       width: 100%;
-      padding: 11px;
+      height: 36.31px;
       background-color: #2563eb;
       color: #ffffff;
       border: none;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.2s;
@@ -185,13 +189,19 @@
       background-color: #1d4ed8;
     }
 
-    /* Footer di Paling Bawah Layar */
+    /* =========================================================
+       4. FOOTER BOTTOM BAR (DENGAN GARIS PEMBATAS PUTIH)
+       - Latar putih dengan border-top tipis (#eef2f6)
+       ========================================================= */
     .footer-bar {
-      padding: 16px 32px;
+      height: 42px;
+      padding: 0 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #f4f7fc;
+      background-color: #ffffff; /* Ubah ke putih bersih */
+      border-top: 1px solid #eef2f6; /* Pembatas garis atas */
+      flex-shrink: 0;
     }
 
     .copyright {
@@ -201,7 +211,7 @@
 
     .footer-nav {
       display: flex;
-      gap: 18px;
+      gap: 16px;
     }
 
     .footer-nav a {
@@ -219,25 +229,14 @@
 
   <!-- Top Header Navigation -->
   <header class="top-header">
-    <!-- Component Logo dengan Tinggi 17.09px & Lebar ~69.15px sesuai Figma -->
     <a href="#" class="logo-box">
-      <!-- SVG Logo PahamKu Presisi (Bintang Kuning Di Antara Balok 2 & 3) -->
       <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Main Blue Rounded Box Container -->
         <rect width="100" height="100" rx="28" fill="#2563EB"/>
-        
-        <!-- Bintang 4 Sudut Kuning Tepat Di Antara Balok Kedua dan Ketiga -->
         <path d="M67.5 17L69.3 24.2L76.5 26L69.3 27.8L67.5 35L65.7 27.8L58.5 26L65.7 24.2L67.5 17Z" fill="#FACC15"/>
-        
-        <!-- Buku Terbuka (Sisi Kiri) -->
         <path d="M22 62C28 57 35 57 41 62V44C35 39 28 39 22 44V62Z" fill="white" fill-opacity="0.95"/>
-
-        <!-- 3 Bar Charts -->
         <rect x="47" y="53" width="8" height="12" rx="4" fill="#93C5FD" fill-opacity="0.75"/>
         <rect x="58" y="45" width="8" height="20" rx="4" fill="#BFDBFE" fill-opacity="0.85"/>
         <rect x="69" y="38" width="8" height="27" rx="4" fill="white"/>
-
-        <!-- Bottom Curved White Line -->
         <path d="M20 73C38 79 62 79 80 73" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
       </svg>
       <span class="logo-text">Paham<span>Ku</span></span>
@@ -247,7 +246,6 @@
 
   <!-- Container Utama -->
   <main class="main-container">
-    <!-- Form Kartu Tengah -->
     <div class="content-wrapper">
       <div class="card">
         <a href="#" class="back-link">&lsaquo; Kembali ke login</a>
@@ -259,13 +257,12 @@
             <label class="form-label" for="email">Email terdaftar</label>
             <input type="email" id="email" class="form-input" placeholder="nama@email.com" required>
           </div>
-          <!-- Tombol Kirim Kode OTP -->
           <button type="submit" class="btn-submit">Kirim kode OTP</button>
         </form>
       </div>
     </div>
 
-    <!-- Footer Bar di Pojok Bawah -->
+    <!-- Footer Bar dengan Pembatas Putih -->
     <footer class="footer-bar">
       <span class="copyright">&copy; 2026 PahamKu</span>
       <nav class="footer-nav">

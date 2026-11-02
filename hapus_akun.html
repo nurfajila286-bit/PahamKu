@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hapus Data Siswa - PahamKu</title>
   
-  <!-- IMPOR FONT: Plus Jakarta Sans dari Google Fonts -->
+  <!-- IMPOR FONT: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +13,6 @@
   <style>
     /* =========================================================
        1. GLOBAL STYLES & RESET
-       - Menghilangkan margin dan padding default browser
-       - Mengatur font keluarga ke Plus Jakarta Sans
        ========================================================= */
     * {
       box-sizing: border-box;
@@ -33,9 +31,7 @@
     }
 
     /* =========================================================
-       2. TOP HEADER NAVIGATION (Bar Navigasi Atas)
-       - Fixed Height: 52px dengan border-bottom abu-abu tipis
-       - Terdiri dari Logo PahamKu (kiri) dan Profil Admin (kanan)
+       2. TOP HEADER NAVIGATION (Tinggi: 52px)
        ========================================================= */
     .top-header {
       height: 52px;
@@ -49,7 +45,6 @@
       z-index: 10;
     }
 
-    /* LOGO BRAND PAHAMKU: Presisi Ukuran Figma (69.15px × 17.09px) */
     .logo-box {
       display: inline-flex;
       align-items: center;
@@ -78,7 +73,6 @@
       color: #2563eb;
     }
 
-    /* BADGE PROFIL ADMIN */
     .user-profile {
       display: flex;
       align-items: center;
@@ -108,7 +102,7 @@
     }
 
     /* =========================================================
-       3. LAYOUT UTAMA (Sidebar + Area Konten Tengah)
+       3. APP BODY (SIDEBAR & KONTEN DATA SISWA)
        ========================================================= */
     .app-body {
       flex: 1;
@@ -117,7 +111,7 @@
       position: relative;
     }
 
-    /* SIDEBAR NAVIGATION: Lebar 118.34px presisi desain Figma */
+    /* SIDEBAR NAVIGATION (Lebar Presisi Figma: 118.34px) */
     .sidebar {
       width: 118.34px;
       background-color: #ffffff;
@@ -148,7 +142,6 @@
       border-radius: 6px;
     }
 
-    /* Indikator Menu Aktif: Data siswa */
     .nav-item.active a {
       background-color: #2563eb;
       color: #ffffff;
@@ -167,7 +160,7 @@
       border-radius: 6px;
     }
 
-    /* MAIN CONTENT WRAPPER & CONTAINER */
+    /* MAIN CONTENT WRAPPER */
     .main-content-wrapper {
       flex: 1;
       display: flex;
@@ -223,7 +216,7 @@
       cursor: pointer;
     }
 
-    /* INPUT PENCARIAN (Search Bar) */
+    /* SEARCH BAR */
     .search-bar {
       display: flex;
       gap: 10px;
@@ -264,7 +257,7 @@
       border: none;
     }
 
-    /* KARTU TABEL DATA SISWA */
+    /* TABEL DATA SISWA */
     .table-card {
       background-color: #ffffff;
       border-radius: 12px;
@@ -297,12 +290,10 @@
       border-bottom: 1px solid #f1f5f9;
     }
 
-    /* BADGE STATUS KATEGORI SISWA */
     .badge-rendah { background-color: #fef2f2; color: #ef4444; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
     .badge-sedang { background-color: #fffbeb; color: #f59e0b; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
     .badge-tinggi { background-color: #ecfdf5; color: #10b981; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
 
-    /* TOMBOL IKON AKSI (Pensil & Tempat Sampah) */
     .action-btns {
       display: flex;
       gap: 8px;
@@ -322,7 +313,7 @@
     .btn-edit { background-color: #eff6ff; color: #2563eb; }
     .btn-delete { background-color: #fef2f2; color: #ef4444; }
 
-    /* PAGINASI & TEKS INFO TABEL */
+    /* FOOTER TABEL & PAGINASI */
     .table-footer {
       display: flex;
       justify-content: space-between;
@@ -352,9 +343,7 @@
     }
 
     /* =========================================================
-       4. FOOTER BOTTOM BAR (Pembatas Putih di Bawah Modal Overlay)
-       - Berwarna Putih (#ffffff) dengan garis border-top (#eef2f6)
-       - z-index: 10 agar berada di atas overlay transparan
+       4. FOOTER BOTOM BAR (TERPISAH DARI MODAL OVERLAY)
        ========================================================= */
     .footer-bar {
       height: 42px;
@@ -381,9 +370,7 @@
     }
 
     /* =========================================================
-       5. MODAL POP-UP OVERLAY (HANYA MELAPISI AREA KONTEN TENGAH)
-       - Position: Absolute agar pembatas footer di bawah tidak tertutup
-       - Overlay Transparan: rgba(15, 23, 42, 0.48)
+       5. MODAL POP-UP OVERLAY (HANYA MELAPISI AREA KONTEN)
        ========================================================= */
     .modal-overlay {
       position: absolute;
@@ -398,7 +385,6 @@
       z-index: 5;
     }
 
-    /* KARTU MODAL POP-UP */
     .modal-card {
       background: #ffffff;
       width: 230px;
@@ -458,12 +444,9 @@
 </head>
 <body>
 
-  <!-- =========================================================
-       BAGIAN 1: HEADER NAVIGATION (TOP BAR)
-       ========================================================= -->
+  <!-- Header Navigation -->
   <header class="top-header">
     <a href="#" class="logo-box">
-      <!-- SVG Vector Logo PahamKu -->
       <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="100" height="100" rx="28" fill="#2563EB"/>
         <path d="M67.5 17L69.3 24.2L76.5 26L69.3 27.8L67.5 35L65.7 27.8L58.5 26L65.7 24.2L67.5 17Z" fill="#FACC15"/>
@@ -476,18 +459,15 @@
       <span class="logo-text">Paham<span>Ku</span></span>
     </a>
 
-    <!-- Informasi Akun Pengguna -->
     <div class="user-profile">
       <span class="role-pill">Admin</span>
       <div class="avatar-pill">AU</div>
     </div>
   </header>
 
-  <!-- =========================================================
-       BAGIAN 2: UTAMA (SIDEBAR + MAIN CONTENT AREA)
-       ========================================================= -->
+  <!-- App Body Container -->
   <div class="app-body">
-    <!-- Sidebar Kiri -->
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <ul class="nav-list">
         <li class="nav-item"><a href="#">Dashboard</a></li>
@@ -498,7 +478,6 @@
         <li class="nav-item"><a href="#">Profil</a></li>
       </ul>
 
-      <!-- Tombol Keluar -->
       <a href="#" class="logout-btn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -509,9 +488,8 @@
       </a>
     </aside>
 
-    <!-- Content Area Wrapper -->
+    <!-- Main Content Wrapper -->
     <div class="main-content-wrapper">
-      <!-- Main Content (Area Tabel Data Siswa) -->
       <main class="main-content">
         <div class="content-header">
           <h1 class="page-title">Data siswa</h1>
@@ -521,7 +499,6 @@
           </div>
         </div>
 
-        <!-- Filter Pencarian -->
         <div class="search-bar">
           <div class="search-input-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
@@ -533,7 +510,6 @@
           <button class="btn-search">Cari</button>
         </div>
 
-        <!-- Tabel Data Siswa -->
         <div class="table-card">
           <table>
             <thead>
@@ -548,7 +524,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Baris Data 1: Andi Saputra -->
               <tr>
                 <td>Andi Saputra</td>
                 <td>55</td>
@@ -558,16 +533,15 @@
                 <td><span class="badge-rendah">Rendah</span></td>
                 <td>
                   <div class="action-btns">
-                    <button class="btn-action-icon btn-edit" title="Edit">
+                    <button class="btn-action-icon btn-edit">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     </button>
-                    <button class="btn-action-icon btn-delete" title="Hapus">
+                    <button class="btn-action-icon btn-delete">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                   </div>
                 </td>
               </tr>
-              <!-- Baris Data 2: Rina Pratiwi -->
               <tr>
                 <td>Rina Pratiwi</td>
                 <td>75</td>
@@ -577,16 +551,15 @@
                 <td><span class="badge-sedang">Sedang</span></td>
                 <td>
                   <div class="action-btns">
-                    <button class="btn-action-icon btn-edit" title="Edit">
+                    <button class="btn-action-icon btn-edit">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     </button>
-                    <button class="btn-action-icon btn-delete" title="Hapus">
+                    <button class="btn-action-icon btn-delete">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                   </div>
                 </td>
               </tr>
-              <!-- Baris Data 3: Dito Wibowo -->
               <tr>
                 <td>Dito Wibowo</td>
                 <td>92</td>
@@ -596,10 +569,10 @@
                 <td><span class="badge-tinggi">Tinggi</span></td>
                 <td>
                   <div class="action-btns">
-                    <button class="btn-action-icon btn-edit" title="Edit">
+                    <button class="btn-action-icon btn-edit">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     </button>
-                    <button class="btn-action-icon btn-delete" title="Hapus">
+                    <button class="btn-action-icon btn-delete">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                   </div>
@@ -609,7 +582,6 @@
           </table>
         </div>
 
-        <!-- Paginasi & Keterangan Jumlah Data -->
         <div class="table-footer">
           <span>Menampilkan 3 dari 60 siswa · latih 80% · uji 20%</span>
           <div class="pagination">
@@ -622,10 +594,7 @@
         </div>
       </main>
 
-      <!-- =========================================================
-           BAGIAN 3: MODAL POP-UP OVERLAY (HAPUS DATA ANDI)
-           - Berada di dalam .main-content-wrapper (Hanya Melapisi Area Tengah)
-           ========================================================= -->
+      <!-- MODAL POP-UP OVERLAY -->
       <div class="modal-overlay">
         <div class="modal-card">
           <h2 class="modal-title">Hapus data Andi?</h2>
@@ -640,10 +609,7 @@
     </div>
   </div>
 
-  <!-- =========================================================
-       BAGIAN 4: FOOTER BOTTOM BAR
-       - Selalu putih di paling bawah layar di luar area modal overlay
-       ========================================================= -->
+  <!-- Footer Bar Paling Bawah (Putih Bersih di Luar Modal Overlay) -->
   <footer class="footer-bar">
     <span>&copy; 2026 PahamKu</span>
     <div class="footer-nav">
