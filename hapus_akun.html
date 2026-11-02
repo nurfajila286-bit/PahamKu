@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hapus Akun - PahamKu</title>
+  <title>Hapus Data Siswa - PahamKu</title>
   
-  <!-- Import Font Plus Jakarta Sans -->
+  <!-- IMPOR FONT: Plus Jakarta Sans dari Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    /* =========================================================
+       1. GLOBAL STYLES & RESET
+       - Menghilangkan margin dan padding default browser
+       - Mengatur font keluarga ke Plus Jakarta Sans
+       ========================================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -25,10 +30,13 @@
       flex-direction: column;
       color: #334155;
       overflow: hidden;
-      position: relative;
     }
 
-    /* Top Bar Header */
+    /* =========================================================
+       2. TOP HEADER NAVIGATION (Bar Navigasi Atas)
+       - Fixed Height: 52px dengan border-bottom abu-abu tipis
+       - Terdiri dari Logo PahamKu (kiri) dan Profil Admin (kanan)
+       ========================================================= */
     .top-header {
       height: 52px;
       padding: 0 24px;
@@ -38,9 +46,10 @@
       background-color: #ffffff;
       border-bottom: 1px solid #eef2f6;
       flex-shrink: 0;
+      z-index: 10;
     }
 
-    /* Container Logo Presisi Figma: 69.15px × 17.09px */
+    /* LOGO BRAND PAHAMKU: Presisi Ukuran Figma (69.15px × 17.09px) */
     .logo-box {
       display: inline-flex;
       align-items: center;
@@ -69,7 +78,7 @@
       color: #2563eb;
     }
 
-    /* User Profile Pill Right */
+    /* BADGE PROFIL ADMIN */
     .user-profile {
       display: flex;
       align-items: center;
@@ -98,14 +107,17 @@
       justify-content: center;
     }
 
-    /* Main Container (Sidebar + Content Background) */
+    /* =========================================================
+       3. LAYOUT UTAMA (Sidebar + Area Konten Tengah)
+       ========================================================= */
     .app-body {
       flex: 1;
       display: flex;
       overflow: hidden;
+      position: relative;
     }
 
-    /* Sidebar Navigation (Figma Width: 118.34px) */
+    /* SIDEBAR NAVIGATION: Lebar 118.34px presisi desain Figma */
     .sidebar {
       width: 118.34px;
       background-color: #ffffff;
@@ -115,6 +127,7 @@
       justify-content: space-between;
       padding: 16px 10px;
       flex-shrink: 0;
+      z-index: 10;
     }
 
     .nav-list {
@@ -135,6 +148,7 @@
       border-radius: 6px;
     }
 
+    /* Indikator Menu Aktif: Data siswa */
     .nav-item.active a {
       background-color: #2563eb;
       color: #ffffff;
@@ -153,14 +167,19 @@
       border-radius: 6px;
     }
 
-    /* Main Content Area (Background Layar Kelola Akun) */
-    .main-content {
+    /* MAIN CONTENT WRAPPER & CONTAINER */
+    .main-content-wrapper {
       flex: 1;
-      background-color: #f4f7fc;
-      padding: 24px 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background-color: #f4f7fc;
+      position: relative;
+    }
+
+    .main-content {
+      padding: 24px 32px;
+      flex: 1;
       overflow-y: auto;
     }
 
@@ -177,17 +196,34 @@
       color: #0f2942;
     }
 
-    .btn-add {
+    .header-action-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary {
       background-color: #2563eb;
       color: #ffffff;
       padding: 8px 16px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       border: none;
+      cursor: pointer;
     }
 
-    /* Search Bar */
+    /* INPUT PENCARIAN (Search Bar) */
     .search-bar {
       display: flex;
       gap: 10px;
@@ -228,7 +264,7 @@
       border: none;
     }
 
-    /* Data Table Card */
+    /* KARTU TABEL DATA SISWA */
     .table-card {
       background-color: #ffffff;
       border-radius: 12px;
@@ -248,29 +284,25 @@
     }
 
     th {
-      padding: 12px 20px;
-      font-size: 13px;
+      padding: 12px 16px;
+      font-size: 12px;
       font-weight: 600;
       color: #2563eb;
     }
 
     td {
-      padding: 14px 20px;
-      font-size: 13px;
+      padding: 12px 16px;
+      font-size: 12px;
       color: #334155;
       border-bottom: 1px solid #f1f5f9;
     }
 
-    .status-badge {
-      display: inline-block;
-      padding: 3px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      background-color: #ecfdf5;
-      color: #10b981;
-    }
+    /* BADGE STATUS KATEGORI SISWA */
+    .badge-rendah { background-color: #fef2f2; color: #ef4444; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .badge-sedang { background-color: #fffbeb; color: #f59e0b; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .badge-tinggi { background-color: #ecfdf5; color: #10b981; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
 
+    /* TOMBOL IKON AKSI (Pensil & Tempat Sampah) */
     .action-btns {
       display: flex;
       gap: 8px;
@@ -284,19 +316,58 @@
       align-items: center;
       justify-content: center;
       border: none;
+      cursor: pointer;
     }
 
     .btn-edit { background-color: #eff6ff; color: #2563eb; }
     .btn-delete { background-color: #fef2f2; color: #ef4444; }
 
-    /* Global Bottom Footer Bar */
-    .footer-bar {
-      padding: 16px 0 0 0;
+    /* PAGINASI & TEKS INFO TABEL */
+    .table-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 12px;
       color: #64748b;
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-link {
+      font-size: 12px;
+      color: #64748b;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .page-link.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       4. FOOTER BOTTOM BAR (Pembatas Putih di Bawah Modal Overlay)
+       - Berwarna Putih (#ffffff) dengan garis border-top (#eef2f6)
+       - z-index: 10 agar berada di atas overlay transparan
+       ========================================================= */
+    .footer-bar {
+      height: 42px;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #64748b;
+      background-color: #ffffff;
+      border-top: 1px solid #eef2f6;
+      flex-shrink: 0;
+      z-index: 10;
     }
 
     .footer-nav {
@@ -309,89 +380,90 @@
       text-decoration: none;
     }
 
-    /* MODAL OVERLAY (Layar Gelap Transparan di Belakang Pop-up) */
+    /* =========================================================
+       5. MODAL POP-UP OVERLAY (HANYA MELAPISI AREA KONTEN TENGAH)
+       - Position: Absolute agar pembatas footer di bawah tidak tertutup
+       - Overlay Transparan: rgba(15, 23, 42, 0.48)
+       ========================================================= */
     .modal-overlay {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(15, 23, 42, 0.4);
-      backdrop-filter: blur(2px);
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.48);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1000;
+      z-index: 5;
     }
 
-    /* MODAL POP-UP CARD (Presisi Figma: Width 236.04px x Height 87.02px, Corner Radius 8.23px) */
+    /* KARTU MODAL POP-UP */
     .modal-card {
       background: #ffffff;
-      width: 236.04px;
-      min-height: 87.02px;
-      border-radius: 8.23px;
-      padding: 13.29px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 230px;
+      padding: 20px 16px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
     }
 
     .modal-title {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: #0f2942;
-      margin-bottom: 3px;
+      margin-bottom: 6px;
     }
 
     .modal-subtitle {
       font-size: 8px;
       color: #94a3b8;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+      line-height: 1.3;
     }
 
-    /* Modal Button Action Row (Presisi Figma: Gap 6.96px, Container ~102.09px x 21.52px) */
     .modal-buttons {
       display: flex;
-      gap: 6.96px;
+      gap: 8px;
       justify-content: center;
       align-items: center;
     }
 
-    .btn-modal-cancel {
-      padding: 4px 10px;
-      font-size: 9px;
-      font-weight: 600;
-      color: #2563eb;
-      background-color: #ffffff;
-      border: 1px solid #bfdbfe;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      line-height: 1;
-    }
-
     .btn-modal-delete {
-      padding: 4px 10px;
-      font-size: 9px;
+      padding: 5px 12px;
+      font-size: 9.5px;
       font-weight: 600;
       color: #ffffff;
       background-color: #ef4444;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
-      line-height: 1;
+    }
+
+    .btn-modal-cancel {
+      padding: 5px 12px;
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #2563eb;
+      background-color: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Header Navigation -->
+  <!-- =========================================================
+       BAGIAN 1: HEADER NAVIGATION (TOP BAR)
+       ========================================================= -->
   <header class="top-header">
     <a href="#" class="logo-box">
-      <!-- SVG Logo PahamKu Presisi -->
+      <!-- SVG Vector Logo PahamKu -->
       <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="100" height="100" rx="28" fill="#2563EB"/>
         <path d="M67.5 17L69.3 24.2L76.5 26L69.3 27.8L67.5 35L65.7 27.8L58.5 26L65.7 24.2L67.5 17Z" fill="#FACC15"/>
@@ -404,25 +476,29 @@
       <span class="logo-text">Paham<span>Ku</span></span>
     </a>
 
+    <!-- Informasi Akun Pengguna -->
     <div class="user-profile">
       <span class="role-pill">Admin</span>
       <div class="avatar-pill">AU</div>
     </div>
   </header>
 
-  <!-- Container App Body -->
+  <!-- =========================================================
+       BAGIAN 2: UTAMA (SIDEBAR + MAIN CONTENT AREA)
+       ========================================================= -->
   <div class="app-body">
-    <!-- Sidebar Navigation -->
+    <!-- Sidebar Kiri -->
     <aside class="sidebar">
       <ul class="nav-list">
         <li class="nav-item"><a href="#">Dashboard</a></li>
-        <li class="nav-item active"><a href="#">Kelola akun</a></li>
-        <li class="nav-item"><a href="#">Data siswa</a></li>
+        <li class="nav-item"><a href="#">Kelola akun</a></li>
+        <li class="nav-item active"><a href="#">Data siswa</a></li>
         <li class="nav-item"><a href="#">Klasifikasi</a></li>
         <li class="nav-item"><a href="#">Rekomendasi</a></li>
         <li class="nav-item"><a href="#">Profil</a></li>
       </ul>
 
+      <!-- Tombol Keluar -->
       <a href="#" class="logout-btn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -433,89 +509,149 @@
       </a>
     </aside>
 
-    <!-- Main Content Area Background -->
-    <main class="main-content">
-      <div>
+    <!-- Content Area Wrapper -->
+    <div class="main-content-wrapper">
+      <!-- Main Content (Area Tabel Data Siswa) -->
+      <main class="main-content">
         <div class="content-header">
-          <h1 class="page-title">Kelola akun</h1>
-          <button class="btn-add">Tambah akun</button>
+          <h1 class="page-title">Data siswa</h1>
+          <div class="header-action-group">
+            <button class="btn-secondary">Unggah CSV</button>
+            <button class="btn-primary">Tambah siswa</button>
+          </div>
         </div>
 
+        <!-- Filter Pencarian -->
         <div class="search-bar">
           <div class="search-input-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="text" class="search-input" placeholder="Cari nama atau email">
+            <input type="text" class="search-input" placeholder="Cari nama atau kelas siswa">
           </div>
           <button class="btn-search">Cari</button>
         </div>
 
+        <!-- Tabel Data Siswa -->
         <div class="table-card">
           <table>
             <thead>
               <tr>
                 <th>Nama</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>Tugas</th>
+                <th>Evaluasi</th>
+                <th>Hadir</th>
+                <th>Aktif</th>
+                <th>Kategori</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
+              <!-- Baris Data 1: Andi Saputra -->
               <tr>
-                <td>Bu Sinta</td>
-                <td>sinta@bimbel.id</td>
-                <td>Pengajar</td>
-                <td><span class="status-badge">Aktif</span></td>
+                <td>Andi Saputra</td>
+                <td>55</td>
+                <td>50</td>
+                <td>60%</td>
+                <td>2</td>
+                <td><span class="badge-rendah">Rendah</span></td>
                 <td>
                   <div class="action-btns">
-                    <button class="btn-action-icon btn-edit"></button>
-                    <button class="btn-action-icon btn-delete"></button>
+                    <button class="btn-action-icon btn-edit" title="Edit">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </button>
+                    <button class="btn-action-icon btn-delete" title="Hapus">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
                   </div>
                 </td>
               </tr>
+              <!-- Baris Data 2: Rina Pratiwi -->
               <tr>
-                <td>Andi</td>
-                <td>andi@gmail.com</td>
-                <td>Siswa</td>
-                <td><span class="status-badge">Aktif</span></td>
+                <td>Rina Pratiwi</td>
+                <td>75</td>
+                <td>72</td>
+                <td>85%</td>
+                <td>3</td>
+                <td><span class="badge-sedang">Sedang</span></td>
                 <td>
                   <div class="action-btns">
-                    <button class="btn-action-icon btn-edit"></button>
-                    <button class="btn-action-icon btn-delete"></button>
+                    <button class="btn-action-icon btn-edit" title="Edit">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </button>
+                    <button class="btn-action-icon btn-delete" title="Hapus">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Baris Data 3: Dito Wibowo -->
+              <tr>
+                <td>Dito Wibowo</td>
+                <td>92</td>
+                <td>90</td>
+                <td>98%</td>
+                <td>5</td>
+                <td><span class="badge-tinggi">Tinggi</span></td>
+                <td>
+                  <div class="action-btns">
+                    <button class="btn-action-icon btn-edit" title="Edit">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </button>
+                    <button class="btn-action-icon btn-delete" title="Hapus">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
 
-      <footer class="footer-bar">
-        <span>&copy; 2026 PahamKu</span>
-        <div class="footer-nav">
-          <a href="#">Panduan</a>
-          <a href="#">Privasi</a>
-          <a href="#">Bantuan</a>
+        <!-- Paginasi & Keterangan Jumlah Data -->
+        <div class="table-footer">
+          <span>Menampilkan 3 dari 60 siswa · latih 80% · uji 20%</span>
+          <div class="pagination">
+            <a href="#" class="page-link">&lsaquo; Sebelumnya</a>
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">Berikutnya &rsaquo;</a>
+          </div>
         </div>
-      </footer>
-    </main>
-  </div>
+      </main>
 
-  <!-- MODAL POP-UP HAPUS AKUN (Presisi Ukuran Figma) -->
-  <div class="modal-overlay">
-    <div class="modal-card">
-      <h2 class="modal-title">Hapus akun Andi?</h2>
-      <p class="modal-subtitle">Akun tidak bisa masuk lagi setelah dihapus.</p>
-      
-      <div class="modal-buttons">
-        <button class="btn-modal-cancel">Batal</button>
-        <button class="btn-modal-delete">Ya, hapus</button>
+      <!-- =========================================================
+           BAGIAN 3: MODAL POP-UP OVERLAY (HAPUS DATA ANDI)
+           - Berada di dalam .main-content-wrapper (Hanya Melapisi Area Tengah)
+           ========================================================= -->
+      <div class="modal-overlay">
+        <div class="modal-card">
+          <h2 class="modal-title">Hapus data Andi?</h2>
+          <p class="modal-subtitle">Data yang dihapus tidak bisa dikembalikan.</p>
+          
+          <div class="modal-buttons">
+            <button class="btn-modal-delete">Ya, hapus</button>
+            <button class="btn-modal-cancel">Batal</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- =========================================================
+       BAGIAN 4: FOOTER BOTTOM BAR
+       - Selalu putih di paling bawah layar di luar area modal overlay
+       ========================================================= -->
+  <footer class="footer-bar">
+    <span>&copy; 2026 PahamKu</span>
+    <div class="footer-nav">
+      <a href="#">Panduan</a>
+      <a href="#">Privasi</a>
+      <a href="#">Bantuan</a>
+    </div>
+  </footer>
 
 </body>
 </html>
